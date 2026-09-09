@@ -2571,3 +2571,2577 @@ document
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home / X</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background: #000;
+    color: #e7e9ea;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    width: 100%;
+    max-width: 1265px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 232px 500px 1fr;
+}
+
+
+/* =========================================================
+   LEFT SIDEBAR
+========================================================= */
+
+.left-sidebar {
+    position: relative;
+}
+
+.sidebar-inner {
+    position: fixed;
+    top: 0;
+
+    width: 232px;
+    height: 100vh;
+
+    padding: 8px 20px 10px 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* X LOGO */
+
+.x-logo {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 2px;
+}
+
+.x-logo svg {
+    width: 31px;
+    height: 31px;
+
+    fill: white;
+}
+
+
+/* NAVIGATION */
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    height: 52px;
+
+    padding: 0 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 19px;
+
+    border-radius: 30px;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    transition: background .15s ease;
+}
+
+.nav-item:hover {
+    background: rgba(231,233,234,.1);
+}
+
+.nav-item.active {
+    font-weight: 700;
+}
+
+.nav-icon {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.nav-icon svg {
+    width: 24px;
+    height: 24px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-item.active svg {
+    fill: currentColor;
+}
+
+.grok-icon {
+    font-size: 25px;
+}
+
+.x-small {
+    font-size: 29px;
+}
+
+
+/* =========================================================
+   POST BUTTON
+========================================================= */
+
+.post-button {
+    width: 194px;
+    height: 44px;
+
+    margin-top: 8px;
+
+    border-radius: 9999px;
+
+    background: #1d9bf0;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: background .2s;
+}
+
+.post-button:hover {
+    background: #1a8cd8;
+}
+
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+.user-account {
+    margin-top: auto;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+}
+
+.user-account:hover {
+    background: rgba(231,233,234,.1);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+.user-info {
+    min-width: 0;
+
+    margin-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-info span {
+    color: #71767b;
+    font-size: 14px;
+}
+
+.more-user {
+    margin-left: auto;
+
+    background: transparent;
+    color: #e7e9ea;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MAIN FEED
+========================================================= */
+
+.feed {
+    min-width: 0;
+
+    border-left: 1px solid #2f3336;
+    border-right: 1px solid #2f3336;
+}
+
+
+/* =========================================================
+   FEED HEADER
+========================================================= */
+
+.feed-header {
+    height: 44px;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 20;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: rgba(0,0,0,.85);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #2f3336;
+}
+
+.tab {
+    position: relative;
+
+    background: transparent;
+
+    color: #71767b;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.tab:hover {
+    background: rgba(231,233,234,.08);
+}
+
+.active-tab {
+    color: #e7e9ea;
+    font-weight: 700;
+}
+
+.active-tab::after {
+    content: "";
+
+    position: absolute;
+
+    width: 46px;
+    height: 3px;
+
+    bottom: 0;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 999px;
+
+    background: #1d9bf0;
+}
+
+
+/* =========================================================
+   COMPOSER
+========================================================= */
+
+.composer {
+    display: flex;
+
+    padding: 12px;
+
+    border-bottom: 1px solid #2f3336;
+}
+
+.composer-content {
+    flex: 1;
+
+    margin-left: 10px;
+}
+
+#postInput {
+    width: 100%;
+
+    min-height: 38px;
+
+    padding: 8px 0;
+
+    resize: none;
+
+    outline: none;
+    border: none;
+
+    background: transparent;
+
+    color: #e7e9ea;
+
+    font-size: 19px;
+
+    overflow: hidden;
+}
+
+#postInput::placeholder {
+    color: #71767b;
+}
+
+.composer-bottom {
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.composer-tools {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.composer-tools button {
+    min-width: 20px;
+
+    background: transparent;
+
+    color: #1d9bf0;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.composer-tools button:hover {
+    opacity: .7;
+}
+
+.publish-button {
+    min-width: 65px;
+    height: 34px;
+
+    padding: 0 15px;
+
+    border-radius: 999px;
+
+    background: #1d9bf0;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.publish-button:disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+
+/* =========================================================
+   POSTS
+========================================================= */
+
+.post {
+    display: flex;
+
+    padding: 10px 12px;
+
+    border-bottom: 1px solid #2f3336;
+
+    transition: background .15s;
+}
+
+.post:hover {
+    background: rgba(255,255,255,.025);
+}
+
+.post-body {
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 10px;
+}
+
+
+/* POST HEADER */
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    line-height: 20px;
+}
+
+.post-header > div {
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+.post-header strong {
+    font-weight: 700;
+}
+
+.handle,
+.time,
+.dot,
+.quoted-header > span {
+    color: #71767b;
+}
+
+.verified {
+    display: inline-flex;
+
+    width: 17px;
+    height: 17px;
+
+    margin-left: 2px;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #1d9bf0;
+
+    color: #fff;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    vertical-align: -2px;
+}
+
+.post-more {
+    padding: 0 5px;
+
+    background: transparent;
+
+    color: #71767b;
+
+    font-size: 12px;
+}
+
+.post-more:hover {
+    color: #1d9bf0;
+}
+
+
+/* POST TEXT */
+
+.post-text {
+    margin-top: 1px;
+
+    color: #e7e9ea;
+
+    font-size: 15px;
+
+    line-height: 20px;
+}
+
+.post-text p {
+    margin-bottom: 14px;
+}
+
+.post-text p:last-child {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   QUOTED POST
+========================================================= */
+
+.quoted-post {
+    margin-top: 7px;
+
+    padding: 10px;
+
+    border: 1px solid #2f3336;
+
+    border-radius: 14px;
+}
+
+.quoted-header {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+}
+
+.small-avatar {
+    width: 24px;
+    height: 24px;
+
+    margin-right: 3px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.quoted-text {
+    margin-top: 7px;
+
+    font-size: 14px;
+
+    line-height: 18px;
+}
+
+.quoted-link {
+    margin-top: 8px;
+
+    color: #71767b;
+
+    font-size: 13px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   POST ACTIONS
+========================================================= */
+
+.post-actions {
+    max-width: 450px;
+
+    margin-top: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action {
+    min-width: 35px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    background: transparent;
+
+    color: #71767b;
+
+    font-size: 18px;
+
+    transition: .15s;
+}
+
+.action small {
+    font-size: 12px;
+}
+
+.action:hover {
+    color: #1d9bf0;
+}
+
+.action.like:hover,
+.action.like.liked {
+    color: #f91880;
+}
+
+.action.repost:hover,
+.action.repost.reposted {
+    color: #00ba7c;
+}
+
+.action.bookmark.saved {
+    color: #1d9bf0;
+}
+
+
+/* =========================================================
+   RIGHT SIDEBAR
+========================================================= */
+
+.right-sidebar {
+    min-width: 0;
+
+    padding: 0 16px;
+}
+
+
+/* SEARCH */
+
+.search-box {
+    height: 40px;
+
+    margin-top: 2px;
+
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 999px;
+
+    background: #202327;
+}
+
+.search-icon {
+    color: #71767b;
+
+    font-size: 25px;
+
+    transform: rotate(-20deg);
+}
+
+.search-box input {
+    width: 100%;
+
+    margin-left: 10px;
+
+    outline: none;
+    border: none;
+
+    background: transparent;
+
+    color: #e7e9ea;
+
+    font-size: 14px;
+}
+
+.search-box:focus-within {
+    border: 1px solid #1d9bf0;
+}
+
+
+/* =========================================================
+   SIDE CARDS
+========================================================= */
+
+.side-card {
+    margin-top: 14px;
+
+    padding: 12px;
+
+    border: 1px solid #2f3336;
+
+    border-radius: 16px;
+}
+
+.side-card h2 {
+    margin-bottom: 8px;
+
+    font-size: 19px;
+
+    line-height: 24px;
+}
+
+
+/* PREMIUM */
+
+.premium-card p {
+    color: #e7e9ea;
+
+    font-size: 14px;
+
+    line-height: 19px;
+}
+
+.premium-card button {
+    height: 32px;
+
+    margin-top: 8px;
+
+    padding: 0 16px;
+
+    border-radius: 999px;
+
+    background: #1d9bf0;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.premium-card button:hover {
+    background: #1a8cd8;
+}
+
+
+/* =========================================================
+   WHAT'S HAPPENING
+========================================================= */
+
+.trend-feature {
+    margin: 12px 0 14px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.trend-feature img {
+    width: 67px;
+    height: 67px;
+
+    border-radius: 8px;
+
+    object-fit: cover;
+}
+
+.trend-feature div {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.trend-feature strong {
+    font-size: 14px;
+}
+
+.trend-feature span {
+    margin-top: 3px;
+
+    color: #71767b;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* TREND ITEM */
+
+.trend-item {
+    position: relative;
+
+    padding: 7px 0;
+}
+
+.trend-item span,
+.trend-item small {
+    display: block;
+
+    color: #71767b;
+
+    font-size: 12px;
+}
+
+.trend-item strong {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 14px;
+}
+
+.trend-item button {
+    position: absolute;
+
+    top: 6px;
+    right: 0;
+
+    background: transparent;
+
+    color: #71767b;
+
+    font-size: 12px;
+}
+
+.show-more {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #1d9bf0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   WHO TO FOLLOW
+========================================================= */
+
+.follow-item {
+    padding: 8px 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.follow-item img {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.follow-item > div {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.follow-item strong {
+    font-size: 14px;
+}
+
+.follow-item small {
+    display: block;
+
+    color: #71767b;
+
+    font-size: 13px;
+}
+
+.follow-item button {
+    height: 32px;
+
+    padding: 0 15px;
+
+    border-radius: 999px;
+
+    background: #eff3f4;
+
+    color: #0f1419;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   FLOATING MESSAGES
+========================================================= */
+
+.messages {
+    position: fixed;
+
+    right: 20px;
+    bottom: 0;
+
+    width: 300px;
+    height: 52px;
+
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 16px 16px 0 0;
+
+    background: #000;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,.12);
+
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.messages button {
+    background: transparent;
+
+    color: #e7e9ea;
+
+    font-size: 19px;
+}
+
+
+/* =========================================================
+   MOBILE / TABLET
+========================================================= */
+
+@media (max-width:1100px) {
+
+    .app {
+        grid-template-columns:
+            88px
+            minmax(500px,600px)
+            1fr;
+    }
+
+    .sidebar-inner {
+        width: 88px;
+
+        padding-right: 8px;
+    }
+
+    .nav-item {
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .nav-item > span:last-child {
+        display: none;
+    }
+
+    .post-button {
+        width: 52px;
+
+        font-size: 0;
+    }
+
+    .post-button::after {
+        content: "+";
+
+        font-size: 25px;
+    }
+
+    .user-info,
+    .more-user {
+        display: none;
+    }
+
+    .user-account {
+        justify-content: center;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+}
+
+
+@media (max-width:650px) {
+
+    .app {
+        display: block;
+
+        width: 100%;
+    }
+
+    .left-sidebar {
+        display: none;
+    }
+
+    .feed {
+        width: 100%;
+
+        border-left: none;
+        border-right: none;
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+    .messages {
+        display: none;
+    }
+
+    .post {
+        padding: 10px;
+    }
+
+    .composer {
+        padding: 10px;
+    }
+
+    .post-actions {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2f3336;
+
+    border-radius: 10px;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+<!-- =====================================================
+     LEFT SIDEBAR
+====================================================== -->
+
+<aside class="left-sidebar">
+
+    <div class="sidebar-inner">
+
+        <!-- X LOGO -->
+
+        <div class="x-logo">
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="
+                    M18.244 2.25h3.308l-7.227 8.26
+                    8.502 11.24H16.17l-5.214-6.817
+                    -5.962 6.817H1.684l7.73-8.835L1.254
+                    2.25H8.08l4.713 6.231L18.244 2.25z
+                    M17.083 19.77h1.833L7.084 4.126H5.117
+                    L17.083 19.77z
+                "/>
+
+            </svg>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-nav">
+
+
+            <a href="#" class="nav-item active">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="
+                            M21 20v-8.5L12 4
+                            3 11.5V20h6v-6h6v6h6z
+                        "/>
+
+                    </svg>
+
+                </span>
+
+                <span>Home</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m20 20-4-4"/>
+
+                    </svg>
+
+                </span>
+
+                <span>Explore</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="
+                            M18 8a6 6 0 0 0-12 0
+                            c0 7-3 7-3 9h18
+                            c0-2-3-2-3-9
+                        "/>
+
+                        <path d="M10 21h4"/>
+
+                    </svg>
+
+                </span>
+
+                <span>Notifications</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <rect x="3" y="5"
+                              width="18"
+                              height="14"
+                              rx="2"/>
+
+                        <path d="m3 7 9 6 9-6"/>
+
+                    </svg>
+
+                </span>
+
+                <span>Messages</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <span class="grok-icon">✦</span>
+
+                </span>
+
+                <span>Grok</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <rect x="4" y="3"
+                              width="16"
+                              height="18"
+                              rx="1"/>
+
+                        <path d="M8 8h8"/>
+                        <path d="M8 12h8"/>
+                        <path d="M8 16h5"/>
+
+                    </svg>
+
+                </span>
+
+                <span>Lists</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="
+                            M6 4h12v17
+                            l-6-4-6 4V4z
+                        "/>
+
+                    </svg>
+
+                </span>
+
+                <span>Bookmarks</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="8" cy="8" r="3"/>
+                        <circle cx="16" cy="8" r="3"/>
+
+                        <path d="
+                            M2 20c0-3
+                            2.5-5 6-5
+                            s6 2 6 5
+                        "/>
+
+                        <path d="
+                            M14 15
+                            c4 0 6 2 6 5
+                        "/>
+
+                    </svg>
+
+                </span>
+
+                <span>Communities</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon x-small">
+                    𝕏
+                </span>
+
+                <span>Premium</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="8" r="4"/>
+
+                        <path d="
+                            M4 21c0-4
+                            3-7 8-7
+                            s8 3 8 7
+                        "/>
+
+                    </svg>
+
+                </span>
+
+                <span>Profile</span>
+
+            </a>
+
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <circle cx="12" cy="12" r="9"/>
+
+                        <circle cx="8" cy="12" r="1"/>
+                        <circle cx="12" cy="12" r="1"/>
+                        <circle cx="16" cy="12" r="1"/>
+
+                    </svg>
+
+                </span>
+
+                <span>More</span>
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- POST -->
+
+        <button class="post-button">
+            Post
+        </button>
+
+
+        <!-- ACCOUNT -->
+
+        <div class="user-account">
+
+            <img
+                class="avatar"
+                src="https://i.pravatar.cc/100?img=12"
+                alt=""
+            >
+
+            <div class="user-info">
+
+                <strong>
+                    Abubakar Mohammed
+                </strong>
+
+                <span>
+                    @imdAbubakar
+                </span>
+
+            </div>
+
+            <button class="more-user">
+                •••
+            </button>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN FEED
+====================================================== -->
+
+<main class="feed">
+
+
+    <!-- TABS -->
+
+    <div class="feed-header">
+
+        <button class="tab active-tab">
+            For you
+        </button>
+
+        <button class="tab">
+            Following
+        </button>
+
+    </div>
+
+
+
+    <!-- COMPOSER -->
+
+    <section class="composer">
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=12"
+            alt=""
+        >
+
+        <div class="composer-content">
+
+            <textarea
+                id="postInput"
+                rows="1"
+                placeholder="What is happening?!"
+            ></textarea>
+
+
+            <div class="composer-bottom">
+
+
+                <div class="composer-tools">
+
+                    <button title="Media">
+                        ▧
+                    </button>
+
+                    <button title="GIF">
+                        GIF
+                    </button>
+
+                    <button title="Poll">
+                        ☷
+                    </button>
+
+                    <button title="Emoji">
+                        ☺
+                    </button>
+
+                    <button title="Schedule">
+                        ◷
+                    </button>
+
+                    <button title="Location">
+                        ⌖
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="publishPost"
+                    class="publish-button"
+                    disabled
+                >
+                    Post
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         POST 1
+    ================================================== -->
+
+    <article class="post">
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=11"
+            alt=""
+        >
+
+        <div class="post-body">
+
+
+            <div class="post-header">
+
+                <div>
+
+                    <strong>
+                        Aamir Siddiqui
+                    </strong>
+
+                    <span class="verified">
+                        ✓
+                    </span>
+
+                    <span class="handle">
+                        @aamirsidd94
+                    </span>
+
+                    <span class="dot">
+                        ·
+                    </span>
+
+                    <span class="time">
+                        1h
+                    </span>
+
+                </div>
+
+                <button class="post-more">
+                    •••
+                </button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                <p>
+                    Qualcomm out there rebranding the Snapdragon 695
+                    to Snapdragon 4 Gen 1 and now to Snapdragon 6s Gen 3.
+                </p>
+
+                <p>
+                    6 Gen 1 &gt; 6s Gen 3.
+                </p>
+
+                <p>
+                    Also, where are 6s Gen 1, 6 Gen 2,
+                    6s Gen 2, 6 Gen 3?
+                </p>
+
+                <p>
+                    It feels like a sly way to let OEM partners
+                    sell old chips with a new name.
+                    Beware of 6s Gen 3!
+                </p>
+
+            </div>
+
+
+            <!-- QUOTE -->
+
+            <div class="quoted-post">
+
+                <div class="quoted-header">
+
+                    <img
+                        class="small-avatar"
+                        src="https://i.pravatar.cc/50?img=13"
+                        alt=""
+                    >
+
+                    <strong>
+                        Android Authority
+                    </strong>
+
+                    <span class="verified">
+                        ✓
+                    </span>
+
+                    <span class="handle">
+                        @AndroidAuth
+                    </span>
+
+                    <span>
+                        · 1h
+                    </span>
+
+                </div>
+
+                <div class="quoted-text">
+
+                    The new Qualcomm Snapdragon 6s Gen 3
+                    is worse than the 6 Gen 1
+
+                </div>
+
+                <div class="quoted-link">
+                    androidauthority.com/qualcomm-snapd...
+                </div>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="post-actions">
+
+                <button class="action comment">
+                    <span>♡</span>
+                    <small>1</small>
+                </button>
+
+                <button class="action repost">
+                    <span>⇄</span>
+                </button>
+
+                <button class="action like">
+                    <span>♡</span>
+                    <small>4</small>
+                </button>
+
+                <button class="action views">
+                    <span>▥</span>
+                    <small>172</small>
+                </button>
+
+                <button class="action bookmark">
+                    <span>♧</span>
+                </button>
+
+                <button class="action share">
+                    <span>⇧</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         POST 2
+    ================================================== -->
+
+    <article class="post">
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=47"
+            alt=""
+        >
+
+        <div class="post-body">
+
+
+            <div class="post-header">
+
+                <div>
+
+                    <strong>
+                        sim&tonic
+                    </strong>
+
+                    <span class="handle">
+                        @idekwhybutwell
+                    </span>
+
+                    <span>
+                        · 1h
+                    </span>
+
+                </div>
+
+                <button class="post-more">
+                    •••
+                </button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                <p>
+                    with nothing prior, a 30 year old “suddenly”
+                    develops such severe health issues that he dies,
+                    and the only way you could perform the last rites
+                    is if you show “proof” of a grave being dug and
+                    ready for him.
+                </p>
+
+            </div>
+
+
+            <div class="quoted-post">
+
+                <div class="quoted-header">
+
+                    <img
+                        class="small-avatar"
+                        src="https://i.pravatar.cc/50?img=32"
+                        alt=""
+                    >
+
+                    <strong>
+                        Gafira Qadir
+                    </strong>
+
+                    <span class="handle">
+                        @GafiraQadir
+                    </span>
+
+                    <span>
+                        · Jun 6
+                    </span>
+
+                </div>
+
+
+                <div class="quoted-text">
+
+                    “They made us dig the grave beforehand
+                    and send them pictures. Only then did
+                    they release the body.”
+
+                </div>
+
+
+                <div class="quoted-link">
+                    maktoobmedia.com/india/kashmiri...
+                </div>
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <button class="action comment">
+                    <span>♡</span>
+                </button>
+
+                <button class="action repost">
+                    <span>⇄</span>
+                </button>
+
+                <button class="action like">
+                    <span>♡</span>
+                </button>
+
+                <button class="action views">
+                    <span>▥</span>
+                    <small>84</small>
+                </button>
+
+                <button class="action bookmark">
+                    <span>♧</span>
+                </button>
+
+                <button class="action share">
+                    <span>⇧</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- =================================================
+         POST 3
+    ================================================== -->
+
+    <article class="post">
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=5"
+            alt=""
+        >
+
+        <div class="post-body">
+
+            <div class="post-header">
+
+                <div>
+
+                    <strong>
+                        Clash of Clans
+                    </strong>
+
+                    <span class="verified">
+                        ✓
+                    </span>
+
+                    <span class="handle">
+                        @ClashofClans
+                    </span>
+
+                    <span>
+                        · 49m
+                    </span>
+
+                </div>
+
+                <button class="post-more">
+                    •••
+                </button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                🏳️‍🌈 Be yourself and be proud
+                of being yourself! 🏳️‍🌈
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <button class="action comment">
+                    <span>♡</span>
+                </button>
+
+                <button class="action repost">
+                    <span>⇄</span>
+                </button>
+
+                <button class="action like">
+                    <span>♡</span>
+                </button>
+
+                <button class="action views">
+                    <span>▥</span>
+                </button>
+
+                <button class="action bookmark">
+                    <span>♧</span>
+                </button>
+
+                <button class="action share">
+                    <span>⇧</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     RIGHT SIDEBAR
+====================================================== -->
+
+<aside class="right-sidebar">
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <span class="search-icon">
+            ⌕
+        </span>
+
+        <input
+            id="searchInput"
+            type="text"
+            placeholder="Search"
+        >
+
+    </div>
+
+
+
+    <!-- PREMIUM -->
+
+    <section class="side-card premium-card">
+
+        <h2>
+            Subscribe to Premium
+        </h2>
+
+        <p>
+            Subscribe to unlock new features and if eligible,
+            receive a share of ads revenue.
+        </p>
+
+        <button>
+            Subscribe
+        </button>
+
+    </section>
+
+
+
+    <!-- WHAT'S HAPPENING -->
+
+    <section class="side-card trends">
+
+        <h2>
+            What’s happening
+        </h2>
+
+
+        <div class="trend-feature">
+
+            <img
+                src="https://i.pravatar.cc/80?img=8"
+                alt=""
+            >
+
+            <div>
+
+                <strong>
+                    WWE Speed
+                </strong>
+
+                <span>
+                    Wrestling · Every Wedn · June 5, 2024
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <span>
+                Technology · Trending
+            </span>
+
+            <strong>
+                Samsung
+            </strong>
+
+            <small>
+                22.8K posts
+            </small>
+
+            <button>
+                •••
+            </button>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <span>
+                Action games · Trending
+            </span>
+
+            <strong>
+                #GenshinImpact
+            </strong>
+
+            <small>
+                96.7K posts
+            </small>
+
+            <button>
+                •••
+            </button>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <span>
+                Technology · Trending
+            </span>
+
+            <strong>
+                Xiaomi
+            </strong>
+
+            <small>
+                6,555 posts
+            </small>
+
+            <button>
+                •••
+            </button>
+
+        </div>
+
+
+        <div class="trend-item">
+
+            <span>
+                Trending
+            </span>
+
+            <strong>
+                GitHub
+            </strong>
+
+            <small>
+                24.8K posts
+            </small>
+
+            <button>
+                •••
+            </button>
+
+        </div>
+
+
+        <a href="#" class="show-more">
+            Show more
+        </a>
+
+    </section>
+
+
+
+    <!-- WHO TO FOLLOW -->
+
+    <section class="side-card follow-card">
+
+        <h2>
+            Who to follow
+        </h2>
+
+
+        <div class="follow-item">
+
+            <img
+                src="https://i.pravatar.cc/80?img=9"
+                alt=""
+            >
+
+            <div>
+
+                <strong>
+                    daylight
+                </strong>
+
+                <span class="verified">
+                    ✓
+                </span>
+
+                <small>
+                    @daylightco
+                </small>
+
+            </div>
+
+            <button>
+                Follow
+            </button>
+
+        </div>
+
+
+        <div class="follow-item">
+
+            <img
+                src="https://i.pravatar.cc/80?img=14"
+                alt=""
+            >
+
+            <div>
+
+                <strong>
+                    OpenAI
+                </strong>
+
+                <span class="verified">
+                    ✓
+                </span>
+
+                <small>
+                    @OpenAI
+                </small>
+
+            </div>
+
+            <button>
+                Follow
+            </button>
+
+        </div>
+
+    </section>
+
+
+</aside>
+
+
+
+<!-- =====================================================
+     MESSAGES
+====================================================== -->
+
+<div class="messages">
+
+    <span>
+        Messages
+    </span>
+
+    <button>
+        ✉
+    </button>
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   COMPOSER
+========================================================= */
+
+const postInput =
+    document.getElementById("postInput");
+
+const publishPost =
+    document.getElementById("publishPost");
+
+
+postInput.addEventListener("input", function () {
+
+    const text = this.value.trim();
+
+    publishPost.disabled =
+        text.length === 0;
+
+
+    /* Auto resize */
+
+    this.style.height = "auto";
+
+    this.style.height =
+        Math.min(this.scrollHeight, 180) + "px";
+
+});
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+}
+
+
+/* =========================================================
+   CREATE POST
+========================================================= */
+
+publishPost.addEventListener("click", function () {
+
+    const text =
+        postInput.value.trim();
+
+    if (!text) return;
+
+
+    const post =
+        document.createElement("article");
+
+    post.className = "post";
+
+
+    post.innerHTML = `
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=12"
+            alt=""
+        >
+
+        <div class="post-body">
+
+            <div class="post-header">
+
+                <div>
+
+                    <strong>
+                        Abubakar Mohammed
+                    </strong>
+
+                    <span class="handle">
+                        @imdAbubakar
+                    </span>
+
+                    <span>
+                        · now
+                    </span>
+
+                </div>
+
+                <button class="post-more">
+                    •••
+                </button>
+
+            </div>
+
+
+            <div class="post-text">
+
+                ${escapeHTML(text)}
+
+            </div>
+
+
+            <div class="post-actions">
+
+                <button class="action comment">
+                    <span>♡</span>
+                </button>
+
+                <button class="action repost">
+                    <span>⇄</span>
+                </button>
+
+                <button class="action like">
+                    <span>♡</span>
+                </button>
+
+                <button class="action views">
+                    <span>▥</span>
+                </button>
+
+                <button class="action bookmark">
+                    <span>♧</span>
+                </button>
+
+                <button class="action share">
+                    <span>⇧</span>
+                </button>
+
+            </div>
+
+        </div>
+    `;
+
+
+    document
+        .querySelector(".composer")
+        .after(post);
+
+
+    postInput.value = "";
+
+    postInput.style.height = "38px";
+
+    publishPost.disabled = true;
+
+
+    attachInteractions(post);
+
+});
+
+
+/* =========================================================
+   POST INTERACTIONS
+========================================================= */
+
+function attachInteractions(post) {
+
+
+    /* LIKE */
+
+    post
+        .querySelectorAll(".like")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                this.classList.toggle("liked");
+
+                const icon =
+                    this.querySelector("span");
+
+                icon.textContent =
+                    this.classList.contains("liked")
+                    ? "♥"
+                    : "♡";
+
+            });
+
+        });
+
+
+    /* REPOST */
+
+    post
+        .querySelectorAll(".repost")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                this.classList.toggle("reposted");
+
+            });
+
+        });
+
+
+    /* BOOKMARK */
+
+    post
+        .querySelectorAll(".bookmark")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                this.classList.toggle("saved");
+
+                const icon =
+                    this.querySelector("span");
+
+                icon.textContent =
+                    this.classList.contains("saved")
+                    ? "★"
+                    : "♧";
+
+            });
+
+        });
+
+
+    /* COMMENTS */
+
+    post
+        .querySelectorAll(".comment")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                alert("Reply composer opened.");
+
+            });
+
+        });
+
+
+    /* SHARE */
+
+    post
+        .querySelectorAll(".share")
+        .forEach(button => {
+
+            button.addEventListener("click", async function () {
+
+                if (navigator.share) {
+
+                    try {
+
+                        await navigator.share({
+                            title: "Post",
+                            text: "Check out this post"
+                        });
+
+                    } catch (error) {}
+
+                } else {
+
+                    alert("Share button clicked.");
+
+                }
+
+            });
+
+        });
+
+}
+
+
+/* Existing posts */
+
+document
+    .querySelectorAll(".post")
+    .forEach(attachInteractions);
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+document
+    .querySelectorAll(".tab")
+    .forEach(tab => {
+
+        tab.addEventListener("click", function () {
+
+            document
+                .querySelectorAll(".tab")
+                .forEach(item => {
+
+                    item.classList.remove(
+                        "active-tab"
+                    );
+
+                });
+
+            this.classList.add(
+                "active-tab"
+            );
+
+        });
+
+    });
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+document
+    .querySelectorAll(".nav-item")
+    .forEach(item => {
+
+        item.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+
+            document
+                .querySelectorAll(".nav-item")
+                .forEach(nav => {
+
+                    nav.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+            this.classList.add("active");
+
+        });
+
+    });
+
+
+/* =========================================================
+   FOLLOW
+========================================================= */
+
+document
+    .querySelectorAll(".follow-item button")
+    .forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            if (
+                this.textContent.trim() ===
+                "Follow"
+            ) {
+
+                this.textContent =
+                    "Following";
+
+                this.style.background =
+                    "#000";
+
+                this.style.color =
+                    "#e7e9ea";
+
+                this.style.border =
+                    "1px solid #536471";
+
+            } else {
+
+                this.textContent =
+                    "Follow";
+
+                this.style.background =
+                    "#eff3f4";
+
+                this.style.color =
+                    "#0f1419";
+
+                this.style.border =
+                    "none";
+
+            }
+
+        });
+
+    });
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+const searchInput =
+    document.getElementById("searchInput");
+
+searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            const query =
+                this.value.trim();
+
+            if (query) {
+
+                console.log(
+                    "Searching:",
+                    query
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PREMIUM BUTTON
+========================================================= */
+
+document
+    .querySelector(".premium-card button")
+    .addEventListener("click", function () {
+
+        alert(
+            "Premium subscription demo."
+        );
+
+    });
+
+
+/* =========================================================
+   MESSAGE BUTTON
+========================================================= */
+
+document
+    .querySelector(".messages button")
+    .addEventListener("click", function () {
+
+        alert(
+            "Messages panel demo."
+        );
+
+    });
+
+
+</script>
+
+</body>
+</html>
